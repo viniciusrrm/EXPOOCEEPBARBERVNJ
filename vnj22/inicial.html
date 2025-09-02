@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>barber club - Barbearia</title>
+    <link rel="stylesheet" href="inicial.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <img src="barberr.png" alt="">
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('services')">Serviços</a></li>
+                    <li><a href="#" onclick="showPage('about')">Sobre Nós</a></li>
+                    <li><a href="#" onclick="showPage('scheduling')">Agendamento</a></li>
+                    <li class="cart-icon" onclick="showPage('cart')">
+                    <li><a href="#" onclick="showPage('login')">Login</a></li>
+                     🛒 <span class="cart-count">0</span>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="login-page" class="page active">
+            <div class="form-container">
+                <h2 class="form-title">Login</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">E-mail</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Senha</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-block">Entrar</button>
+                </form>
+                <div class="form-footer">
+                    <p>Não tem uma conta? <a href="#" onclick="showPage('register')">Cadastre-se</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="register-page" class="page">
+            <div class="form-container">
+                <h2 class="form-title">Cadastro</h2>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-name">Nome Completo</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">E-mail</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone">Telefone</label>
+                        <input type="tel" id="register-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Senha</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirmar Senha</label>
+                        <input type="password" id="register-confirm-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-block">Cadastrar</button>
+                </form>
+                <div class="form-footer">
+                    <p>Já tem uma conta? <a href="#" onclick="showPage('login')">Faça login</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="home-page" class="page">
+            <div class="hero">
+                <h1>Estilo que Transforma</h1>
+                <p>Na Barber club, cada corte é uma obra de arte</p>
+                <button class="btn btn-large" onclick="showPage('scheduling')">Agendar Horário</button>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Profissionais Qualificados</h3>
+                    <p>Nossa equipe é formada pelos melhores barbeiros da região</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Ambiente Aconchegante</h3>
+                    <p>Um espaço masculino pensado para seu conforto</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Produtos Premium</h3>
+                    <p>Utilizamos apenas os melhores produtos do mercado</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services-page" class="page">
+            <h1>Nossos Serviços</h1>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="Cabelo.jpg" alt="">
+                    <div class="service-info">
+                        <h3 class="service-title">Corte de Cabelo</h3>
+                        <p class="service-description">Corte moderno e estilizado com as melhores técnicas.</p>
+                        <p class="service-price">R$ 35,00</p>
+                        <button class="btn" onclick="addToCart(1, 'Corte de Cabelo', 35.00)">Agendar</button>
+                    </div>
+                </div>
+                <div class="service-card">
+                       <img src="barbaa.webp" alt="">
+                    <div class="service-info">
+                        <h3 class="service-title">Barba</h3>
+                        <p class="service-description">Aparar, modelar e definir para um visual impecável.</p>
+                        <p class="service-price">R$ 25,00</p>
+                        <button class="btn" onclick="addToCart(2, 'Barba', 25.00)">Agendar</button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="cabelobarba.jpg" alt="">
+                    <div class="service-info">
+                        <h3 class="service-title">Combo Completo</h3>
+                        <p class="service-description">Corte + Barba + Sobrancelha com desconto especial.</p>
+                        <p class="service-price">R$ 50,00</p>
+                        <button class="btn" onclick="addToCart(3, 'Combo Completo', 50.00)">Agendar</button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="sombrancelha.jpg" alt="">
+                    <div class="service-info">
+                        <h3 class="service-title">Sobrancelha</h3>
+                        <p class="service-description">Design de sobrancelhas para valorizar seu rosto.</p>
+                        <p class="service-price">R$ 15,00</p>
+                        <button class="btn" onclick="addToCart(4, 'Sobrancelha', 15.00)">Agendar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-page" class="page">
+            <h1>Sobre Nós</h1>
+            <div class="about-content">
+                <h2>Nossa História</h2>
+                <p>Fundada em 2010, a Corte & Estilo nasceu da paixão por cuidar da autoestima masculina. Começamos como uma pequena barbearia de bairro e hoje somos referência em cuidados masculinos na região.</p>
+                
+                <h2>Nossa Missão</h2>
+                <p>Proporcionar aos nossos clientes não apenas um corte de cabelo ou barba, mas uma experiência completa de bem-estar e cuidado pessoal, em um ambiente acolhedor e descontraído.</p>
+                
+                <h2>Nossa Equipe</h2>
+                <p>Contamos com profissionais especializados e constantemente capacitados nas últimas tendências e técnicas de cortes e cuidados masculinos.</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h3>Joao e vinicius</h3>
+                        <p>Fundadoresr</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>joao</h3>
+                        <p>Especialista em Barba</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>vinicius</h3>
+                        <p>Barbeiro</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="scheduling-page" class="page">
+            <h1>Agendamento</h1>
+            <div class="form-container">
+                <h2 class="form-title">Agende seu Horário</h2>
+                <form id="scheduling-form">
+                    <div class="form-group">
+                        <label for="scheduling-name">Nome</label>
+                        <input type="text" id="scheduling-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="scheduling-email">E-mail</label>
+                        <input type="email" id="scheduling-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="scheduling-phone">Telefone</label>
+                        <input type="tel" id="scheduling-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="scheduling-date">Data</label>
+                        <input type="date" id="scheduling-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="scheduling-service">Serviço</label>
+                        <select id="scheduling-service" required>
+                            <option value="">Selecione um serviço</option>
+                            <option value="1">Corte de Cabelo - R$ 35,00</option>
+                            <option value="2">Barba - R$ 25,00</option>
+                            <option value="3">Combo Completo - R$ 50,00</option>
+                            <option value="4">Sobrancelha - R$ 15,00</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Horário</label>
+                        <div class="time-slots">
+                            <div class="time-slot" onclick="selectTimeSlot(this)">08:00</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this)">09:00</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this)">10:00</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this)">11:00</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this)">14:00</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this)">15:00</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this)">16:00</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this)">17:00</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-block">Confirmar Agendamento</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="cart-page" class="page">
+            <h1>Meu Agendamento</h1>
+            
+            <div class="cart-items" id="cart-items">
+                <p class="empty-cart-message">Você não possui serviços agendados.</p>
+            </div>
+            
+            <div class="cart-total">
+                Total: R$ <span id="cart-total">0,00</span>
+            </div>
+            
+            <button class="btn" onclick="checkout()">Confirmar Agendamento</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Barber Club</h3>
+                    <p>Rua VNJ, 144</p>
+                    <p>Tropical, cascavel-PR</p>
+                    <p>CEP: 01234-567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Telefone: (45) 3456-7890</p>
+                    <p>WhatsApp: (45) 98765-4321</p>
+                    <p>Email: contato@barberclub.com.br</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Horário de Funcionamento</h3>
+                    <p>Segunda a Sexta: 8h às 19h</p>
+                    <p>Sábado: 10h as 17h</p>
+                    <p>Domingo: Fechado</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+               
+            </div>
+        </div>
+    </footer>
+
+    <script src="javinha.js"></script>
+</body>
+</html>
